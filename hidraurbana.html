@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by http://www.hotwebsitetemplates.net
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<LINK REL="SHORTCUT ICON" HREF="fi.ico">
+<title>Hidráulica</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/droid_sans_400-droid_sans_700.font.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/radius.js"></script>
+<script language="javascript" type="text/javascript">
+//CALENDARIO
+function obtiene_fecha()
+   {
+   var fecha_actual = new Date()
+
+   dia = fecha_actual.getDate()
+   mes = fecha_actual.getMonth() + 1
+   anio = fecha_actual.getYear()
+
+   if (anio < 100)
+      anio = '19' + anio
+   else if ( ( anio > 100 ) && ( anio < 999 ) ) {
+      var cadena_anio = new String(anio)
+      anio = '20' + cadena_anio.substring(1,3)
+   }      
+
+   if (mes < 10)
+      mes = '0' + mes
+
+   if (dia < 10)
+      dia = '0' + dia
+
+   return (dia + "/" + mes + "/" + anio)
+   }
+
+function calendario()
+   	{
+	var x, y, fila, valor
+   	var fecha_actual = new Date()
+   	var dia_mes = fecha_actual.getDate()		//dia del mes
+   	var mes = fecha_actual.getMonth() + 1		//mes del año
+   	var anio = fecha_actual.getYear()		//año
+   	var dia_semana = fecha_actual.getDay() - 1	//dia de la semana (-1 para domingo, 0 para lunes, etc.)
+
+	//array de dias que tiene cada mes
+	dias_por_mes = new Array(12)
+	dias_por_mes[0] = 31
+	dias_por_mes[1] = 28
+	dias_por_mes[2] = 31
+	dias_por_mes[3] = 30
+	dias_por_mes[4] = 31
+	dias_por_mes[5] = 30
+	dias_por_mes[6] = 31
+	dias_por_mes[7] = 31
+	dias_por_mes[8] = 30
+	dias_por_mes[9] = 31
+	dias_por_mes[10] = 30
+	dias_por_mes[11] = 31
+
+	//corrige dia de la semana
+	if(dia_semana == -1) 
+		dia_semana = 6
+
+	//corrige dias de febrero si año bisiesto
+	if((anio % 4) == 0) 
+		dias_por_mes[1]++
+
+	//crea matriz de datos
+	matriz = new Array(6)
+	for (fila = 0; fila < 6; fila++) 
+		matriz[fila] = new Array(7)
+
+	//obtiene posición día 1
+	y = dia_semana + 1
+	for (x = dia_mes; x > 0; x--) {
+		y--	
+		if (y < 0) 
+			y = 6
+	}
+		
+	//guarda valores en variable matriz
+	valor = 1
+	for (fila = 0; fila < 6; fila++) {
+		for (x = 0; x < 7; x++) {
+			if ((fila == 0) && (x < y)) {				//valores vacíos primera fila
+				matriz[fila][x] = ""
+			} else if (valor > dias_por_mes[mes - 1]) {		//valores vacíos última línea
+				matriz[fila][x] = ""
+			} else if (valor == dia_mes) {				//valor día actual
+				matriz[fila][x] = "<b><font color='red'>" + valor + "</font></b>"
+				valor++
+			} else {
+				matriz[fila][x] = valor				//valores ocupados
+				valor++
+			}
+		}
+	}
+
+	//impresion del calendario
+	document.write("<div align='center'><center>")
+	document.write("")
+	document.write("<table border='0' width='15%'cellspacing='2' cellpadding='1'>")
+	document.write("  <tr>")
+	document.write("    <td width='100%' colspan='7' align='center'><strong>" + obtiene_fecha() + "</strong></td>")
+	document.write("  </tr>")
+	document.write("  <tr>")//crea fila de nombres de días
+	document.write("    <td width='14%' align='center'><small>Lunes</small></td>")
+	document.write("    <td width='14%' align='center'><small>Martes</small></td>")
+	document.write("    <td width='14%' align='center'><small>Miercoles</small></td>")
+	document.write("    <td width='14%' align='center'><small>Jueves</small></td>")
+	document.write("    <td width='14%' align='center'><small>Viernes</small></td>")
+	document.write("    <td width='15%' align='center' bgcolor='#FC5A52'><small>Sabado</small></td>")
+	document.write("    <td width='15%' align='center' bgcolor='#FC5A52'><small>Domingo</small></td>")
+	document.write("  </tr>")
+
+	for(fila = 0; fila < 6; fila++) {
+		if ((matriz[fila][0] == "") && (matriz[fila][6] == "")) 		//no muestra ultima fila vacía
+			break
+		document.write("  <tr>")											//crea fila de tabla calendario
+		document.write("    <td width='14%' align='left'>" + matriz[fila][0] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][1] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][2] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][3] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][4] + "</td>")
+		document.write("    <td width='15%' align='left' bgcolor='#FC5A52'>" + matriz[fila][5] + "</td>")
+		document.write("    <td width='15%' align='left' bgcolor='#FC5A52'>" + matriz[fila][6] + "</td>")
+		document.write("  </tr>")
+	}
+
+	document.write("</table>")
+	document.write("</center></div>")
+}
+
+
+
+
+</script>
+
+<!-- CuFon ends -->
+</head>
+<body bgcolor="#FFFFFF" text="#000000" oncontextmenu="return false">
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+     <table width="970" height="157" border="0">
+      <tr>
+      	<td width="148" rowspan="2"><center><img src="images/escudofi_color_m2008_jpg.jpg"  width="97" height="113"/>
+      	</center></td>
+      	<td width="650" height="63"><img src="images/fac.jpg" /></td>
+        <td width="148" rowspan="2"><center><img src="images/escudounam_color_m2008_jpg.jpg"  width="97" height="113"/></center></td>
+       </tr>
+       <tr>
+      	<td width="650" height="85"><img src="images/hidro.jpg" /></td>
+       </tr>
+      </table>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li ><a href="index.html">Inicio</a></li>
+          <li><a href="departamento.html">Departamento</a></li>
+          <li><a href="publicacion.html">Publicaciones</a></li>
+          <li><a href="laboratorio.html">Laboratorio</a></li>
+          <li><a href="posgrado.html">Posgrado</a></li>
+          <li class="active"><a href="asignatura.html">Asignaturas</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+           <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <img src="images/hbg_img.jpg" width="970" height="174" alt="image" class="hbg_img" />
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+           <div class="head">Horario<br/></div><br/><div class="clr"></div>
+          <table border="2"  bordercolor="#CCCCCC" align="center">
+<TR class="hora"  bgcolor="#C60000"> 
+   <TH width="75">Clave <br/>
+     Asignatura</TH> 
+   <TH width="41">Grupo</TH> 
+   <TH width="184">Profesor</TH>
+   <TH width="29">Tipo</TH> 
+   <TH width="84">Horario</TH> 
+   <TH width="54">D&iacute;a</TH>  
+</TR> 
+<TR> 
+   <TD  class="ka"rowspan="1"><center>2601 <br/>Hidr&aacute;ulica<br/> Urbana</center></TD> 
+   <TD class="ka">1</TD> 
+   <TD class="ka">ING. OSCAR 
+   FRANCO DOMINGUEZ</TD>
+   <TD class="ka">T</TD>
+   <TD class="ka">8:30 a 10:00 </TD> 
+   <TD class="ka">LMV</TD>
+</TR> 
+
+</TABLE> 
+        </div>
+        <div class="article">
+  
+     <a href="Programas/pehuok.pdf"target="_blank"><b>Programa de Estudio</b></a> 
+
+        <div class="clr"></div>
+          
+          
+         
+        </div>
+      </div>
+      <div class="sidebar">
+        
+        <div class="gadget">
+          <h2 class="star"> </h2><div class="clr"></div>
+          <ul class="sb_menu">
+           <li><a href="asignatura.html">Hidr&aacute;ulica B&aacute;sica</a></li>
+            <li><a href="hidrocanales.html">Hidr&aacute;ulica de Canales</a></li>
+            <li><a href="hidromaquinas.html">Hidr&aacute;ulica de M&aacute;quinas y Transitorios</a></li>
+            <li><a href="hidraurbana.html">Hidr&aacute;ulica Urbana</a></li>
+            <li><a href="hidrologia.html">Hidrolog&iacute;a</a></li>
+            <li><a href="obras.html">Obras Hidr&aacute;ulicas</a></li>
+            <li><a href="temas.html"></a></li>
+          </ul>
+        </div>
+        <div class="gadget">
+          <h2 class="star"><span></span></h2><div class="clr"></div>
+          <ul class="ex_menu">
+           
+          </ul>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2><span><center>Academicos</center></span></h2>
+         <img src="photos/carlos.jpg" width="66" height="58" alt="pix" />
+         <img src="photos/adriana.jpg"  width="66" height="58" alt="pix" />
+        <img src="photos/gabriel.jpg" width="66" height="58" alt="pix" />
+        <img src="photos/victorfranco.jpg" width="66" height="58" alt="pix" />
+        <img src="photos/julio.jpg"width="66" height="58" alt="pix" />
+        <img src="photos/marengo.jpg" width="66" height="58" alt="pix" /> 
+      </div>
+      <div class="col c2">
+        <h2><span><center>Visitas</center></span></h2><br/><br/><br/><br/><br/><br/>
+        <!-- Contador de visitas -->
+<center>
+<img style="border: 0px solid; display: inline;" alt="Contador De Visitas Gratis" src="http://www.websmultimedia.com/contador-de-visitas.php?id=502"></center>
+<!-- Fin Contador de visitas -->
+      </div>
+      <div class="col c3">
+        <h2><span><center>Calendario</center></span></h2>
+        <!-- Para visualizar el calendario -->
+<script language="javascript" type="text/javascript">
+<!--
+calendario()
+//-->
+</script>
+       
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf"><span>D.R. © 2007 © D. R. Universidad Nacional Autónoma de México, Facultad de Ingeniería, División de Ingenierías Civil y Geomática Tel. 56 22 80 11 Hecho en México.Circuito Exterior, Ciudad Universitaria, Coyoacán, México D. F. CP 04510. Prohibida su reproducción parcial o total para fines de lucro.</span></p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+
+
+

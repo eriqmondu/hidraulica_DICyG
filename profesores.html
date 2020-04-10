@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+Design by http://www.hotwebsitetemplates.net
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>Laboratorio de Hidráulica</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/cufon-yui.js"></script>
+<script type="text/javascript" src="js/droid_sans_400-droid_sans_700.font.js"></script>
+<script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="js/radius.js"></script>
+<script language="javascript" type="text/javascript">
+//CALENDARIO
+function obtiene_fecha()
+   {
+   var fecha_actual = new Date()
+
+   dia = fecha_actual.getDate()
+   mes = fecha_actual.getMonth() + 1
+   anio = fecha_actual.getYear()
+
+   if (anio < 100)
+      anio = '19' + anio
+   else if ( ( anio > 100 ) && ( anio < 999 ) ) {
+      var cadena_anio = new String(anio)
+      anio = '20' + cadena_anio.substring(1,3)
+   }      
+
+   if (mes < 10)
+      mes = '0' + mes
+
+   if (dia < 10)
+      dia = '0' + dia
+
+   return (dia + "/" + mes + "/" + anio)
+   }
+
+function calendario()
+   	{
+	var x, y, fila, valor
+   	var fecha_actual = new Date()
+   	var dia_mes = fecha_actual.getDate()		//dia del mes
+   	var mes = fecha_actual.getMonth() + 1		//mes del año
+   	var anio = fecha_actual.getYear()		//año
+   	var dia_semana = fecha_actual.getDay() - 1	//dia de la semana (-1 para domingo, 0 para lunes, etc.)
+
+	//array de dias que tiene cada mes
+	dias_por_mes = new Array(12)
+	dias_por_mes[0] = 31
+	dias_por_mes[1] = 28
+	dias_por_mes[2] = 31
+	dias_por_mes[3] = 30
+	dias_por_mes[4] = 31
+	dias_por_mes[5] = 30
+	dias_por_mes[6] = 31
+	dias_por_mes[7] = 31
+	dias_por_mes[8] = 30
+	dias_por_mes[9] = 31
+	dias_por_mes[10] = 30
+	dias_por_mes[11] = 31
+
+	//corrige dia de la semana
+	if(dia_semana == -1) 
+		dia_semana = 6
+
+	//corrige dias de febrero si año bisiesto
+	if((anio % 4) == 0) 
+		dias_por_mes[1]++
+
+	//crea matriz de datos
+	matriz = new Array(6)
+	for (fila = 0; fila < 6; fila++) 
+		matriz[fila] = new Array(7)
+
+	//obtiene posición día 1
+	y = dia_semana + 1
+	for (x = dia_mes; x > 0; x--) {
+		y--	
+		if (y < 0) 
+			y = 6
+	}
+		
+	//guarda valores en variable matriz
+	valor = 1
+	for (fila = 0; fila < 6; fila++) {
+		for (x = 0; x < 7; x++) {
+			if ((fila == 0) && (x < y)) {				//valores vacíos primera fila
+				matriz[fila][x] = ""
+			} else if (valor > dias_por_mes[mes - 1]) {		//valores vacíos última línea
+				matriz[fila][x] = ""
+			} else if (valor == dia_mes) {				//valor día actual
+				matriz[fila][x] = "<b><font color='red'>" + valor + "</font></b>"
+				valor++
+			} else {
+				matriz[fila][x] = valor				//valores ocupados
+				valor++
+			}
+		}
+	}
+
+	//impresion del calendario
+	document.write("<div align='center'><center>")
+	document.write("")
+	document.write("<table border='0' width='15%'cellspacing='2' cellpadding='1'>")
+	document.write("  <tr>")
+	document.write("    <td width='100%' colspan='7' align='center'><strong>" + obtiene_fecha() + "</strong></td>")
+	document.write("  </tr>")
+	document.write("  <tr>")//crea fila de nombres de días
+	document.write("    <td width='14%' align='center'><small>Lunes</small></td>")
+	document.write("    <td width='14%' align='center'><small>Martes</small></td>")
+	document.write("    <td width='14%' align='center'><small>Miercoles</small></td>")
+	document.write("    <td width='14%' align='center'><small>Jueves</small></td>")
+	document.write("    <td width='14%' align='center'><small>Viernes</small></td>")
+	document.write("    <td width='15%' align='center' bgcolor='#FC5A52'><small>Sabado</small></td>")
+	document.write("    <td width='15%' align='center' bgcolor='#FC5A52'><small>Domingo</small></td>")
+	document.write("  </tr>")
+
+	for(fila = 0; fila < 6; fila++) {
+		if ((matriz[fila][0] == "") && (matriz[fila][6] == "")) 		//no muestra ultima fila vacía
+			break
+		document.write("  <tr>")											//crea fila de tabla calendario
+		document.write("    <td width='14%' align='left'>" + matriz[fila][0] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][1] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][2] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][3] + "</td>")
+		document.write("    <td width='14%' align='left'>" + matriz[fila][4] + "</td>")
+		document.write("    <td width='15%' align='left' bgcolor='#FC5A52'>" + matriz[fila][5] + "</td>")
+		document.write("    <td width='15%' align='left' bgcolor='#FC5A52'>" + matriz[fila][6] + "</td>")
+		document.write("  </tr>")
+	}
+
+	document.write("</table>")
+	document.write("</center></div>")
+}
+
+
+
+
+</script>
+
+<!-- CuFon ends -->
+</head>
+<body>
+<div class="main">
+
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+      <table width="970" height="156" border="0">
+      <tr>
+      	<td width="148" rowspan="2"><center><img src="images/escudofi_color_m2008_jpg.jpg"  width="97" height="113"/>
+      	</center></td>
+      	<td width="650" height="61"><img src="images/fac.png"/></td>
+        <td width="148" rowspan="2"><center><img src="images/escudounam_color_m2008_jpg.jpg"  width="97" height="113"/></center></td>
+       </tr>
+       <tr>
+      	<td width="650" height="85"><img src="images/hidro.png" /></td>
+       </tr>
+      </table>
+      </div>
+      <div class="menu_nav">
+        <ul>
+          <li class="active"><a href="index.html">Inicio</a></li>
+          <li><a href="departamento.html">Departamento</a></li>
+          <li><a href="publicacion.html">Publicaciones</a></li>
+          <li><a href="blog.html">Laboratorio</a></li>
+          <li><a href="posgrado.html">Posgrado</a></li>
+          <li><a href="asignatura.html">Asignatura</a></li>
+          <li><a href="servicios.html">Servicio</a></li>
+        </ul>
+      </div>
+      <div class="clr"></div>
+      <img src="images/hbg_img.jpg" width="970" height="174" alt="image" class="hbg_img" />
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <h2><span>About to</span> Company Name</h2><div class="clr"></div>
+          <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget bibendum tellus. Nunc vel imperdiet tellus. Mauris ornare aliquam urna, accumsan bibendum eros auctor ac.</strong></p>
+          <p>Curabitur purus mi, pharetra vitae viverra et, mattis sit amet nunc. Quisque enim ipsum, convallis sit amet molestie in, placerat vel urna. Praesent congue auctor elit, nec pretium ipsum volutpat vitae. Vivamus eget ipsum sit amet ipsum tincidunt fermentum. Sed hendrerit neque ac erat condimentum vulputate. Nulla velit massa, dictum etinterdum quis, tempus at velit.</p>
+        </div>
+        <div class="article">
+          <h2><span>Our</span> Mission</h2><div class="clr"></div>
+          <p><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eget bibendum tellus. Nunc vel imperdiet tellus. Mauris ornare aliquam urna, accumsan bibendum eros auctor ac.</strong></p>
+          <p>Maecenas vestibulum fermentum eleifend. Mauris erat sem, suscipit non tincidunt quis, vestibulum eget elit. Duis eget arcu ante. Proin nulla elit, elementum sit amet commodo et, eleifend vitae quam. Nam vel aliquam tortor. Aliquam bibendum erat a urna interdum quis mattis augue interdum. Phasellus fermentum bibendum mauris, ut semper justo pharetra vestibulum. Duis dictum purus sed nibh commodo a congue elit lobortis. Nunc sed feugiat tellus. Mauris aliquet lorem non enim euismod quis fermentum erat porta. Nullam non elit orci. Aliquam blandit mattis feugiat. Cras pulvinar aliquet massa, quis laoreet mi pulvinar ac. Aliquam mi augue, vehicula in consectetur in, porttitor sed tellus. Mauris convallis dapibus auctor. Integer in egestas lorem. In nulla dolor, sollicitudin vitae sollicitudin quis, viverra at lorem.</p>
+          <p>Ut ullamcorper velit et nisi feugiat non sagittis tortor pharetra. Mauris ut urna et magna commodo cursus. Curabitur quis elementum arcu. Maecenas eleifend, urna vitae vehicula bibendum, felis tellus tincidunt lorem, at iaculis neque eros ac dui. Nunc malesuada pulvinar suscipit. Phasellus sed tortor quis ligula facilisis aliquam. Aliquam quis magna eu dolor posuere malesuada. Quisque consequat, metus fermentum convallis imperdiet, ante justo pharetra enim, vel commodo ipsum mauris eget purus. Morbi lacinia nisl urna, scelerisque suscipit lacus. Nulla ac orci ut nunc venenatis gravida.</p>
+        </div>
+      </div>
+      <div class="sidebar">
+        
+        <div class="gadget">
+          <h2 class="star"> </h2><div class="clr"></div>
+          <ul class="sb_menu">
+           
+             <li><a href="alcance.html">Alcance  en la licenciatura</a></li>
+            <li><a href="perfil.html">Perfil de Egreso</a></li>
+            <li><a href="organizacion.html">Organización</a></li>
+            <li><a href="infrestructura.html">Infrestructura</a></li>
+            <li><a href="marco.html">Marco Hitorico</a></li>
+             <li><a href="jefes.html">Jefes</a></li>
+              <li><a href="profesores.html">Profesores</a></li>
+               <li><a href="mapa.html">Mapa</a></li>
+          </ul>
+        </div>
+        <div class="gadget">
+          <h2 class="star"><span>Sponsors</span></h2><div class="clr"></div>
+          <ul class="ex_menu">
+            <li><a href="http://www.dreamtemplate.com/">DreamTemplate</a><br />Over 6,000+ Premium Web Templates</li>
+            <li><a href="http://www.templatesold.com/">TemplateSOLD</a><br />Premium WordPress &amp; Joomla Themes</li>
+            <li><a href="http://www.imhosted.com/">ImHosted.com</a><br />Affordable Web Hosting Provider</li>
+            <li><a href="http://www.megastockphotos.com/">MegaStockPhotos</a><br />Unlimited Amazing Stock Photos</li>
+            <li><a href="http://www.evrsoft.com/">Evrsoft</a><br />Website Builder Software &amp; Tools</li>
+            <li><a href="http://www.csshub.com/">CSS Hub</a><br />Premium CSS Templates</li>
+          </ul>
+        </div>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+
+  <div class="fbg">
+    <div class="fbg_resize">
+      <div class="col c1">
+        <h2><span><center>Academicos</center></span></h2>
+        <a href="#"><img src="images/pix1.jpg" width="58" height="58" alt="pix" /></a>
+        <a href="#"><img src="images/pix2.jpg" width="58" height="58" alt="pix" /></a>
+        <a href="#"><img src="images/pix3.jpg" width="58" height="58" alt="pix" /></a>
+        <a href="#"><img src="images/pix4.jpg" width="58" height="58" alt="pix" /></a>
+        <a href="#"><img src="images/pix5.jpg" width="58" height="58" alt="pix" /></a>
+        <a href="#"><img src="images/pix6.jpg" width="58" height="58" alt="pix" /></a>
+      </div>
+      <div class="col c2">
+        <h2><span><center>Visitas</center></span></h2><br/><br/><br/><br/><br/><br/>
+        <!-- Contador de visitas -->
+<center><a href="http://www.websmultimedia.com/contador-de-visitas-gratis" title="Contador De Visitas Gratis">
+<img style="border: 0px solid; display: inline;" alt="Contador De Visitas Gratis" src="http://www.websmultimedia.com/contador-de-visitas.php?id=502"></a></center>
+<!-- Fin Contador de visitas -->
+      </div>
+      <div class="col c3">
+        <h2><span><center>Calendario</center></span></h2>
+        <!-- Para visualizar el calendario -->
+<script language="javascript" type="text/javascript">
+<!--
+calendario()
+//-->
+</script>
+       
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf"><span>D.R. © 2007 © D. R. Universidad Nacional Autónoma de México, Facultad de Ingeniería, División de Ingenierías Civil y Geomática Tel. 56 22 80 11 Hecho en México.Circuito Exterior, Ciudad Universitaria, Coyoacán, México D. F. CP 04510. Prohibida su reproducción parcial o total para fines de lucro.</span></p>
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

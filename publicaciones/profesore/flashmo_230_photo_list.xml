@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<photos>
+	<config 
+		show_tooltip="true"
+		follow_mouse="false"
+		folder="photos/"
+		css_file="flashmo_210_style.css"
+		tween_duration="0.5"
+		rotation_speed="4"
+		radius_x="300"
+		radius_y="60"
+		tn_border_size="5"
+		tn_border_color="0xFFFFFF"
+		photo_border_size="10"
+		photo_border_color="0xFFFFFF"
+		bar_status="1"
+		dragger_x="0"
+		dragger_y="220">
+	</config>	
+	<photo>
+		<thumbnail>alejandro.jpg</thumbnail>
+		<filename>alejandro.jpg</filename>
+		<tooltip>M.I. Alejandro Sánchez Huerta</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I. Alejandro Sánchez Huerta</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>alfonso.jpg</thumbnail>
+		<filename>alfonso.jpg</filename>
+		<tooltip>Ing. Alfonso Morales García</tooltip>
+		<description><![CDATA[<p class="subtitle">Ing. Alfonso Morales García</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>adriana.jpg</thumbnail>
+		<filename>adriana.jpg</filename>
+		<tooltip>M.I. Amalia Adriana Cafaggi Félix </tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Amalia Adriana Cafaggi Félix</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>arturo.jpg</thumbnail>
+		<filename>arturo.jpg</filename>
+		<tooltip>M.I. Arturo Nava Mastache</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I. Arturo Nava Mastache</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>bernardo.jpg</thumbnail>
+		<filename>bernardo.jpg</filename>
+		<tooltip>M.C. Bernardo Echavarría Soto</tooltip>
+		<description><![CDATA[<p class="subtitle">M. C.	Bernardo Echavarría Soto</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>carlosfranco.jpg</thumbnail>
+		<filename>carlosfranco.jpg</filename>
+		<tooltip>M.I. Carlos Franco Domínguez</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Carlos Franco Domínguez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>eduardo.jpg</thumbnail>
+		<filename>eduardo.jpg</filename>
+		<tooltip>M.I. Eduardo Antonio Rodal Canales</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Eduardo Antonio Rodal Canales</p>]]></description>
+	</photo>
+<photo>
+		<thumbnail>fermin.jpg</thumbnail>
+		<filename>fermin.jpg</filename>
+		<tooltip>M.I. Fermín García Jiménez</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Fermín García Jiménez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>faustino.jpg</thumbnail>
+		<filename>faustino.jpg</filename>
+		<tooltip>M.I. Faustino de Luna Cruz</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Faustino de Luna Cruz</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>francisco.jpg</thumbnail>
+		<filename>francisco.jpg</filename>
+		<tooltip>Ing. Francisco Castro Juárez</tooltip>
+		<description><![CDATA[<p class="subtitle">Ing.	Francisco Castro Juárez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>hector.jpg</thumbnail>
+		<filename>hector.jpg</filename>
+		<tooltip>M.I. Héctor Eslava Morales</tooltip>
+		<description><![CDATA[<p class="subtitle">M.I. Héctor Eslava Morales</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>humberto.jpg</thumbnail>
+		<filename>humberto.jpg</filename>
+		<tooltip>Dr. Humberto Gardea Villegas</tooltip>
+		<description><![CDATA[<p class="subtitle">Dr. Humberto Gardea Villegas</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>jesus.jpg</thumbnail>
+		<filename>jesus.jpg</filename>
+		<tooltip>Ing. Jesús Gallegos Silva</tooltip>
+		<description><![CDATA[<p class="subtitle">Ing.	Jesús Gallegos Silva</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>jose.jpg</thumbnail>
+		<filename>jose.jpg</filename>
+		<tooltip>M.I. José Antonio Aguirre Balcells</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	José Antonio Aguirre Balcells</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>lilia.jpg</thumbnail>
+		<filename>lilia.jpg</filename>
+		<tooltip>Dra. Lilia Reyes Chávez</tooltip>
+		<description><![CDATA[<p class="subtitle">Dra.	Lilia Reyes Chávez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>luis.jpg</thumbnail>
+		<filename>luis.jpg</filename>
+		<tooltip>M.I. Luis Manuel Salmones Hernández</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Luis Manuel Salmones Hernández</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>marco.jpg</thumbnail>
+		<filename>marco.jpg</filename>
+		<tooltip>M.I. Marco Antonio Peña Ramírez</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Marco Antonio Peña Ramírez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>martin.jpg</thumbnail>
+		<filename>martin.jpg</filename>
+		<tooltip>Dr. Martín Jiménez Espinosa</tooltip>
+		<description><![CDATA[<p class="subtitle">Dr. Martín Jiménez Espinosa</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>nikte.jpg</thumbnail>
+		<filename>nikte.jpg</filename>
+		<tooltip>M.I. Nikte Norma Ocampo Guerrero</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Nikte Norma Ocampo Guerrero</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>onesimo.jpg</thumbnail>
+		<filename>onesimo.jpg</filename>
+		<tooltip>Ing. Onésimo Rafael Xelhuantzi Ávila</tooltip>
+		<description><![CDATA[<p class="subtitle">Ing.	Onésimo Rafael Xelhuantzi Ávila</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>oscarfranco.jpg</thumbnail>
+		<filename>oscarfranco.jpg</filename>
+		<tooltip>Ing. Oscar Franco Domínguez</tooltip>
+		<description><![CDATA[<p class="subtitle">Ing.	Oscar Franco Domínguez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>oscar.jpg</thumbnail>
+		<filename>oscar.jpg</filename>
+		<tooltip>M.I. Oscar José Vega Roldán</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Oscar José Vega Roldán</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>oscarpozo.jpg</thumbnail>
+		<filename>oscarpozo.jpg</filename>
+		<tooltip>Dr. Oscar Pozos Estrada </tooltip>
+		<description><![CDATA[<p class="subtitle">Dr. Oscar Pozos Estrada </p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>roberto.jpg</thumbnail>
+		<filename>roberto.jpg</filename>
+		<tooltip>Ing. Roberto Carvajal Rodríguez </tooltip>
+		<description><![CDATA[<p class="subtitle">Ing.	Roberto Carvajal Rodríguez </p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>victorfranco.jpg</thumbnail>
+		<filename>victorfranco.jpg</filename>
+		<tooltip>M.I. Víctor Franco </tooltip>
+		<description><![CDATA[<p class="subtitle">M. I.	Víctor Franco</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>alexis.jpg</thumbnail>
+		<filename>alexis.jpg</filename>
+		<tooltip>M.I. Alexis López Montes</tooltip>
+		<description><![CDATA[<p class="subtitle">M.I. Alexis López Montes</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>alemaya.jpg</thumbnail>
+		<filename>alemaya.jpg</filename>
+		<tooltip>M.I. Alejandro Maya Franco</tooltip>
+		<description><![CDATA[<p class="subtitle">M. I. Alejandro Maya Franco</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>gabriel.jpg</thumbnail>
+		<filename>gabriel.jpg</filename>
+		<tooltip>Dr. Gabriel Echávez</tooltip>
+		<description><![CDATA[<p class="subtitle">Dr. Gabriel Echávez</p>]]></description>
+	</photo>
+	<photo>
+		<thumbnail>marengo.jpg</thumbnail>
+		<filename>marengo.jpg</filename>
+		<tooltip>Dr. Humberto Marengo</tooltip>
+		<description><![CDATA[<p class="subtitle">Dr. Humberto Marengo</p>]]></description>
+	</photo>
+	
+
+
+	
+	
+</photos>

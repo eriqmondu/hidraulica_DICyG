@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<photos>
+	<config 
+		show_tooltip="true"
+		follow_mouse="false"
+		folder="photos/"
+		css_file="flashmo_210_style.css"
+		tween_duration="0.5"
+		rotation_speed="4"
+		radius_x="300"
+		radius_y="60"
+		tn_border_size="5"
+		tn_border_color="0xFFFFFF"
+		photo_border_size="10"
+		photo_border_color="0xFFFFFF"
+		bar_status="1"
+		dragger_x="0"
+		dragger_y="220">
+	</config>
+	<photo>
+		<thumbnail>humberto.jpg</thumbnail>
+		<filename>humberto.jpg</filename>
+		<tooltip>Humberto Gardea Villegas  </tooltip>
+		<description><![CDATA[<p class="subtitle">Humberto Gardea Villegas<br/>Periodo  (1984 – 1987)</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>oscar.jpg</thumbnail>
+		<filename>oscar.jpg</filename>
+		<tooltip>Oscar Vega Roldán </tooltip>
+		<description><![CDATA[<p class="subtitle">Oscar Vega Roldán<br/>Periodo (1987 – 1989)</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>roberto.jpg</thumbnail>
+		<filename>roberto.jpg</filename>
+		<tooltip>Roberto Miguel Carvajal Rodríguez </tooltip>
+		<description><![CDATA[<p class="subtitle">Roberto Miguel Carvajal Rodríguez<br/>Periodo (1989-1990) <br/>y (1995-2003)</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>adriana.jpg</thumbnail>
+		<filename>adriana.jpg</filename>
+		<tooltip>Amalia Adriana Cafaggi Félix </tooltip>
+		<description><![CDATA[<p class="subtitle">Amalia Adriana Cafaggi Félix<br/>Periodo (1990-1995)<br/> y (2007-Actual)</p>]]></description>
+	</photo>
+	
+	<photo>
+		<thumbnail>carlos.jpg</thumbnail>
+		<filename>carlos.jpg</filename>
+		<tooltip>Carlos Agustín Escalante Sandoval </tooltip>
+		<description><![CDATA[<p class="subtitle">Carlos Agustín Escalante Sandoval<br/>Periodo (2003-2007)</p>]]></description>
+	</photo>
+<photo>
+		<thumbnail>miflores.jpg</thumbnail>
+		<filename>miflores.jpg</filename>
+		<tooltip>Ing. Miguel Angel Flores Lira</tooltip>
+		<description><![CDATA[<p class="subtitle">Ing. Miguel Angel Flores Lira<br/></p>]]></description>
+	</photo>
+	
+	
+</photos>
